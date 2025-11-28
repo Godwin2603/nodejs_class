@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Lost in Space</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;700;900&display=swap" rel="stylesheet">
+    <style>
+        /* --- GLOBAL STYLES & DARK MODE BASE --- */
+        :root {
+            --error-color: #e91e63; /* Deep Pink/Red for the warning */
+            --primary-color: #00bcd4; /* Cyan/Teal for navigation */
+            --background-color: #1a1a2e; /* Dark Blue/Purple background */
+            --container-color: #2c2c44; /* Slightly lighter container */
+            --text-color: #f0f0f0;
+            --font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        /* --- CONTAINER (The Error Card) --- */
+        .container {
+            max-width: 600px;
+            width: 90%;
+            background: var(--container-color);
+            padding: 50px 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 1.5s ease-out;
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border glow */
+        }
+
+        /* --- ERROR CODE (The Highlight) --- */
+        h1 {
+            font-size: 8em; /* Much larger number */
+            font-weight: 900;
+            margin: 0 0 5px;
+            color: var(--error-color);
+            /* Subtle shadow to make the number pop */
+            text-shadow: 0 0 15px rgba(233, 30, 99, 0.5); 
+            animation: pulse 2s infinite alternate;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: var(--text-color);
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+        
+        p {
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: #b0b0b0;
+        }
+
+        /* --- NAVIGATION LINKS --- */
+        .nav-links {
+            margin-top: 30px;
+        }
+        
+        .nav-links a {
+            display: inline-block;
+            margin: 0 10px;
+            padding: 12px 25px;
+            background-color: var(--primary-color);
+            color: var(--background-color);
+            text-decoration: none;
+            border-radius: 50px; /* Pill-shaped buttons */
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.4);
+        }
+
+        .nav-links a:hover {
+            background-color: #00a4b8;
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 188, 212, 0.6);
+        }
+
+        /* --- KEYFRAMES FOR ANIMATION --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            from { opacity: 0.8; }
+            to { opacity: 1; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>404</h1>
+        <h2>Lost in the Digital Cosmos</h2>
+        
+        <p>
+            The page you were looking for seems to have drifted into an unknown sector of the web. 
+            We couldn't find the resource you requested.
+        </p>
+
+        <p>
+            No worries! Navigate back to safety using the links below:
+        </p>
+
+        <div class="nav-links">
+            <a href="/">Go to Homepage</a>
+            <a href="/about">Learn About Us</a>
+            <a href="/signup">Sign Up Today</a>
+        </div>
+    </div>
+
+</body>
+</html>
