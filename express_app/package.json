@@ -1,0 +1,24 @@
+{
+  "name": "nodejs-_-class",
+  "version": "1.0.0",
+  "description": "My first express app",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Godwin2603/nodejs_class.git"
+  },
+  "keywords": [],
+  "author": "Godwin2603",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Godwin2603/nodejs_class/issues"
+  },
+  "homepage": "https://github.com/Godwin2603/nodejs_class#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
