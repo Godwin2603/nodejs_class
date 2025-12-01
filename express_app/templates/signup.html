@@ -1,155 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Create Your Account - Elite Registration</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        /* --- GLOBAL STYLES & BACKGROUND --- */
-        :root {
-            --primary-color: #007bff; /* Bright Blue */
-            --accent-color: #28a745; /* Green Accent for Success */
-            --background-color: #e9ecef;
-            --text-color: #333;
-            --font-family: 'Roboto', sans-serif;
-        }
-        
-        body {
-            font-family: var(--font-family);
-            margin: 0;
-            display: flex; /* Use Flexbox to center content vertically and horizontally */
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, var(--background-color) 0%, #d8e1e7 100%); /* Subtle gradient background */
-            color: var(--text-color);
-        }
-
-        /* --- FORM CONTAINER (The Card) --- */
-        .form-container {
-            max-width: 420px;
-            width: 90%; /* Responsive width */
-            background: white;
-            padding: 40px;
-            border-radius: 15px; /* Softer rounded corners */
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Deeper, more noticeable shadow */
-            text-align: left;
-            transition: transform 0.3s ease;
-        }
-        
-        /* Subtle lift on hover */
-        .form-container:hover {
-            transform: translateY(-5px);
-        }
-
-        h1 {
-            text-align: center;
-            color: var(--primary-color); 
-            margin-bottom: 30px;
-            font-weight: 700;
-            font-size: 2em;
-        }
-
-        /* --- FORM ELEMENTS --- */
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 400; /* Lighter weight for cleaner look */
-            color: #555;
-            font-size: 0.9em;
-        }
-        
-        input[type="text"],
-        input[type="email"],
-        input[type="password"] {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px; /* Slightly more rounded */
-            box-sizing: border-box;
-            transition: border-color 0.3s, box-shadow 0.3s;
-        }
-
-        /* Focus State Effect */
-        input:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
-            outline: none;
-        }
-
-        /* --- BUTTON STYLING --- */
-        button {
-            width: 100%;
-            padding: 14px;
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1em;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.1s;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        button:hover {
-            background-color: #1f8a37;
-        }
-        
-        button:active {
-            transform: scale(0.99); /* Click effect */
-        }
-
-        /* --- LOGIN LINK --- */
-        .login-link {
-            text-align: center;
-            margin-top: 25px;
-            display: block;
-            font-size: 0.9em;
-        }
-        
-        .login-link a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.3s;
-        }
-
-        .login-link a:hover {
-            color: #0056b3;
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/signup.css" />
+  </head>
+  <body>
     <div class="form-container">
-        <h1>Welcome! Get Started</h1>
+      <h1>Welcome! Get Started</h1>
 
-        <form action="/submit-signup-data" method="POST">
-            
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" placeholder="Choose a unique username" required>
+      <form action="/signup" method="POST">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Choose a unique username"
+        />
 
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" required>
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="you@example.com"
+          required
+        />
 
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Must be at least 8 characters" required>
+        <label for="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Must be at least 8 characters"
+          required
+        />
 
-            <label for="confirm_password">Confirm Password</label>
-            <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-enter your password" required>
+        <label for="confirm_password">Confirm Password</label>
+        <input
+          type="password"
+          id="confirm_password"
+          name="confirm_password"
+          placeholder="Re-enter your password"
+          required
+        />
 
-            <button type="submit">Create Account</button>
-        </form>
+        <button type="submit">Create Account</button>
+      </form>
+      <div id="message"></div>
 
-        <span class="login-link">
-            Already have an account? <a href="login.html">Log in here.</a>
-        </span>
+      <span class="login-link">
+        Already have an account? <a href="login.html">Log in here.</a>
+      </span>
     </div>
+    <script>
+      const msg = window.sessionMessage;
+      const type = window.sessionMessageType;
 
-</body>
+      if (msg) {
+        alert(msg);
+      }
+    </script>
+  </body>
 </html>
