@@ -1,7 +1,7 @@
 const express = require('express'); 
 const path = require("path")
 const session = require("express-session");
-
+const PORT = 3000
 
 const app = express();             
 
@@ -91,6 +91,6 @@ app.use((req,res) =>{
 })
 
 app.listen(3000, () => {
-  console.log("Server running at http://localhost:3000");
-});              
+  console.log(`Server running at http://localhost:${PORT}`);
+});             
 
