@@ -1,0 +1,88 @@
+/* --- General Body and Container --- */
+body {
+    /* Sets a clean, readable font */
+    font-family: Arial, sans-serif;
+    /* Light background color for the page */
+    background-color: #f4f4f9;
+    /* Add a little padding to the overall page */
+    padding: 20px;
+    margin: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto; /* Center the container */
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* --- Headings --- */
+h1 {
+    /* Primary color for main titles */
+    color: #333;
+    border-bottom: 3px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+h2 {
+    /* Accent color for user name and section titles */
+    color: #007bff;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+/* --- Conditional Welcome Message (from index.ejs) --- */
+.welcome-message {
+    background-color: #d4edda; /* Light green */
+    color: #155724; /* Dark green text */
+    border: 1px solid #c3e6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* --- Lists (Skills & Team) --- */
+ul {
+    list-style-type: none; /* Removes default bullets */
+    padding: 0;
+    margin-top: 15px;
+}
+
+li {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+li:hover {
+    background-color: #e9ecef; /* Slight hover effect */
+}
+
+/* --- Navigation Links --- */
+.nav {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px dashed #ccc;
+}
+
+.nav a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav a:hover {
+    background-color: #007bff;
+    color: white;
+}

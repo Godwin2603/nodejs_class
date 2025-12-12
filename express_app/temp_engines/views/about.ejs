@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About | <%= pageTitle %></title>
+    <link rel="stylesheet" href="/css/style.css"> 
+</head>
+<body>
+    <h1>About Us</h1>
+    
+    <p>This application was built using Express.js and the EJS template engine in <%= currentYear %>.</p>
+
+    <h2>Our Team</h2>
+    <ul>
+        <% team.forEach(member => { %>
+            <li><%= member %></li>
+        <% }); %>
+    </ul>
+
+    <div class="nav">
+      <a href="/">Go to Home Page</a>
+    </div>
+
+</body>
+</html>

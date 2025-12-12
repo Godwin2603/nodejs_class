@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Godwin2603/nodejs_class#readme",
   "dependencies": {
+    "ejs": "^3.1.10",
     "express": "^5.1.0",
     "express-session": "^1.18.2"
   }

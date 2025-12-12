@@ -1,83 +1,71 @@
-const express = require('express'); 
-const path = require("path")
-const session = require("express-session");
-const PORT = 3000
+const express = require("express");
+// const path = require("path");
+const PORT = 3000;
+const coreRoutes = require("./src/routes/api");
+const authRoutes = require("./src/routes/api/auth.routes");
+const userRoutes = require("./src/routes/api/user.routes");
 
-const app = express();             
 
+// const ejs = require("ejs");
+
+const app = express();
+// const session = require("express-session");
 
 //serve static file
-app.use(express.static(path.join(__dirname, "static")))
+// app.use(express.static(path.join(__dirname, "static")));
 
 //middleware
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json())
 
-app.use(
-  session({
-    secret: "mysecret123",
-    resave: false,
-    saveUninitialized: true,
-  })
-);
+// app.use(
+//   session({
+//     secret: "mysecret123",
+//     resave: false,
+//     saveUninitialized: true,
+//   })
+// );
+app.use("/", coreRoutes);
+app.use("/", authRoutes);
+app.use("/users", userRoutes)
+
+//setting ejs
+// app.set("view engine", "ejs");
+// app.set("views", "./views");
 
 //Routes
-app.get('/', (req, res) => {       
-  res.sendFile(path.join(__dirname, 'templates/index.html'))  
-});
-
-app.get('/about', (req,res) => {
-    res.sendFile(path.join(__dirname, 'templates/about.html'))  
-})
-// app.get('/signup', (req,res) => {
-//     res.sendFile(path.join(__dirname, 'templates/signup.html'))  
-// })
-
-
 
 //post
-app.post('/signup', (req, res) => {
-  const { username, email, password } = req.body;
+// app.post('/signup', (req, res) => {
+//   const { username, email, password } = req.body;
 
-  if (!username || !email || !password) {
-    req.session.message = "Please fill all fields.";
-    req.session.messageType = "error";
-    return res.redirect('/signup');
-  }
+//   if (!username || !email || !password) {
+//     req.session.message = "Please fill all fields.";
+//     req.session.messageType = "error";
+//     return res.redirect('/signup');
+//   }
 
-  req.session.message = "Signup successful!";
-  req.session.messageType = "success";
+//   req.session.message = "Signup successful!";
+//   req.session.messageType = "success";
 
-  return res.redirect('/signup');
-});
+//   return res.redirect('/signup');
+// });
 
-app.get('/signup', (req, res) => {
-  const message = req.session.message;
-  const messageType = req.session.messageType;
+// app.get('/signup', (req, res) => {
+//   const message = req.session.message;
+//   const messageType = req.session.messageType;
 
-  req.session.message = null;
-  req.session.messageType = null;
+//   req.session.message = null;
+//   req.session.messageType = null;
 
-  res.send(`
-    <script>
-      window.sessionMessage = ${JSON.stringify(message)};
-      window.sessionMessageType = ${JSON.stringify(messageType)};
-    </script>
-    ${require('fs').readFileSync(path.join(__dirname, 'templates/signup.html'), "utf8")}
-  `);
-});
-// app.post('/signup', (req,res) => {
-//   // console.log('Form data', req.body)
-//   // console.log('Form data from query', req.query)
-//   const username = req.body.username
-//   const email = req.body.email
-//   const password = req.body.password
-//   if(!username || !email || !password){
-//     return res.redirect('/signup?signup=error')
-//   }     
-//   res.redirect('/signup?signup=sucess')
-//   // res.sendFile(path.join(__dirname,'templates/index.html'))
-// })
-
+//   res.send(`
+//     <script>
+//       window.sessionMessage = ${JSON.stringify(message)};
+//       window.sessionMessageType = ${JSON.stringify(messageType)};
+//     </script>
+//     ${require('fs').readFileSync(path.join(__dirname, 'templates/signup.html'), "utf8")}
+//   `);
+// });
 
 //put
 
@@ -86,11 +74,10 @@ app.get('/signup', (req, res) => {
 //delete
 
 //404 handler
-app.use((req,res) =>{
-  res.status(404).sendFile(path.join(__dirname, 'templates/not-found.html'))  
-})
+// app.use((req, res) => {
+//   res.status(404).sendFile(path.join(__dirname, "templates/not-found.html"));
+// });
 
 app.listen(3000, () => {
   console.log(`Server running at http://localhost:${PORT}`);
-});             
-
+});
