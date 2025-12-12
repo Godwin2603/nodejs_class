@@ -1,22 +1,23 @@
 const express = require("express");
-// const path = require("path");
+const path = require("path");
 const PORT = 3000;
 const coreRoutes = require("./src/routes/api");
 const authRoutes = require("./src/routes/api/auth.routes");
 const userRoutes = require("./src/routes/api/user.routes");
+const fileRoutes = require("./src/routes/api/file.routes");
 
-
+// const upload_ = multer({ storage: multer.memoryStorage() }); //memory storage (buffer)
 // const ejs = require("ejs");
 
 const app = express();
 // const session = require("express-session");
 
 //serve static file
-// app.use(express.static(path.join(__dirname, "static")));
+app.use(express.static(path.join(__dirname, "static")));
 
 //middleware
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json())
+app.use(express.json());
 
 // app.use(
 //   session({
@@ -27,14 +28,19 @@ app.use(express.json())
 // );
 app.use("/", coreRoutes);
 app.use("/", authRoutes);
-app.use("/users", userRoutes)
+app.use("/users", userRoutes);
+app.use("/files", fileRoutes);
 
 //setting ejs
 // app.set("view engine", "ejs");
 // app.set("views", "./views");
 
 //Routes
-
+//application level middleware
+app.use((req, res, next) => {
+  console.log(req.method, req.url);
+  next();
+});
 //post
 // app.post('/signup', (req, res) => {
 //   const { username, email, password } = req.body;

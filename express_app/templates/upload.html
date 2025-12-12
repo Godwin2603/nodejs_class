@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload</title>
+  </head>
+  <body>
+    <h1>Upload file</h1>
+    <form
+      action="http://localhost:3000/files/upload"
+      method="post"
+      enctype="multipart/form-data"
+    >
+      <label for="file"> select a file to upload </label>
+      <input type="file" name="file" id="file" />
+      <button type="submit">Upload file</button>
+    </form>
+    <style>
+      form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        padding: 20px;
+      }
+    </style>
+  </body>
+</html>
